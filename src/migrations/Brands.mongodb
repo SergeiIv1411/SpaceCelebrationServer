@@ -1,0 +1,205 @@
+// MongoDB Playground
+// To disable this template go to Settings | MongoDB | Use Default Template For Playground.
+// Make sure you are connected to enable completions and to be able to run a playground.
+// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
+
+// Select the database to use.
+use('TriolMarket');
+
+// The drop() command destroys all data from a collection.
+// Make sure you run it against the correct database and collection.
+db.brands.drop();
+
+// Insert a few documents into the sales collection.
+db.brands.insertMany([
+{
+"_id": "33abe0ea-2921-11e8-8c65-0050569459e9",
+"name": "SICCE",
+"img": "brands/SICCE.jpg"
+},
+{
+"_id": "6ba43be3-0e82-11e5-9c79-005056bf2238",
+"name": "Jebo",
+"img": "brands/JEBO.png"
+},
+{
+"_id": "de69cb94-4af2-11e9-af37-0050569459e9",
+"name": "AQUATLANTIS",
+"img": "brands/Aquatlantis.jpg"
+},
+{
+"_id": "35cbdf68-0e82-11e5-9c79-005056bf2238",
+"name": "Gamma",
+"img": "brands/gamma.jpg"
+},
+{
+"_id": "d5f23830-277c-11e8-8c65-0050569459e9",
+"name": "BRIT",
+"img": "brands/Brit.jpg"
+},
+{
+"_id": "88486b7d-de10-11e7-ada1-005056bf744c",
+"name": "Triol",
+"img": "brands/triol.png"
+},
+{
+"_id": "705c1c38-ba86-11e8-8629-0050569459e9",
+"name": "DARSI",
+"img": "brands/Darsi.jpg"
+},
+{
+"_id": "e36551f6-b514-11e9-a0dd-00505694cf31",
+"name": "GIGWI",
+"img": "brands/gigwi.png"
+},
+{
+"_id": "3bda14a2-e3e9-11eb-bb95-1866da6865ac",
+"name": "BAYER",
+"img": "brands/Bayer.png"
+},
+{
+"_id": "58fc7a9a-b514-11e9-a0dd-00505694cf31",
+"name": "GFP"
+},
+{
+"_id": "638c35b9-0e82-11e5-9c79-005056bf2238",
+"name": "Cat'sBest"
+},
+{
+"_id": "c6e418ec-755a-11e8-8629-0050569459e9",
+"name": "Wellness CORE",
+"img": "brands/Wellness CORE.jpg"
+},
+{
+"_id": "b19cf9cc-831e-11eb-84d6-00505694261d",
+"name": "Joyser"
+},
+{
+"_id": "83e69839-4a20-11e8-883f-0050569459e9",
+"name": "ZOLUX",
+"img": "brands/ZOLUX.png"
+},
+{
+"_id": "1db7a054-28fa-11e8-8c65-0050569459e9",
+"name": "IMAC",
+"img": "brands/IMAC.png"
+},
+{
+"_id": "6209d3ae-de13-11e7-ada1-005056bf744c",
+"name": "DARSI",
+"img": "brands/Darsi.jpg"
+},
+{
+"_id": "fe3e5286-e3dc-11eb-bb95-1866da6865ac",
+"name": "PRODAC",
+"img": "brands/PRODAC.png"
+},
+{
+"_id": "2eac4ef6-0e82-11e5-9c79-005056bf2238",
+"name": "CatStep",
+"img": "brands/catstep.png"
+},
+{
+"_id": "44eecd45-0e82-11e5-9c79-005056bf2238",
+"name": "AA",
+"img": "brands/AA.png"
+},
+{
+"_id": "8358c08d-e3e9-11eb-bb95-1866da6865ac",
+"name": "LISHINU",
+"img": "brands/LISHINU.png"
+},
+{
+"_id": "74c8104b-0817-11e9-8a25-0050569459e9",
+"name": "DOG GONE SMART",
+"img": "brands/DOG GONE SMART.jpg"
+},
+{
+"_id": "28096a18-4888-11e8-883f-0050569459e9",
+"name": "SERA",
+"img": "brands/SERA.png"
+},
+{
+"_id": "d12cf372-2773-11e8-8c65-0050569459e9",
+"name": "MOLINA",
+"img": "brands/MOLINA.png"
+},
+{
+"_id": "6375cd09-cfe3-11e9-a0dd-00505694cf31",
+"name": "Hagen",
+"img": "brands/Hagen.jpg"
+},
+{
+"_id": "756a7850-0e82-11e5-9c79-005056bf2238",
+"name": "Laguna",
+"img": "brands/laguna.jpg"
+},
+{
+"_id": "db37fdd8-551d-11e8-bafe-0050569459e9",
+"name": "BIOKAT'S",
+"img": "brands/BIOKAT'S.png"
+},
+{
+"_id": "ba493375-b787-11e9-a0dd-00505694cf31",
+"name": "Flexi",
+"img": "brands/Flexi.jpg"
+},
+{
+"_id": "f1b38119-44a1-11e8-883f-0050569459e9",
+"name": "JUWEL",
+"img": "brands/JUWEL.png"
+},
+{
+"_id": "48e9bf25-0510-11e9-8a25-0050569459e9",
+"name": "NERF DOG",
+"img": "brands/NERF DOG.jpg"
+},
+{
+"_id": "c5c41f53-e3e6-11eb-bb95-1866da6865ac",
+"name": "HING"
+},
+{
+"_id": "632455e9-7700-11e9-af37-0050569459e9",
+"name": "ONTO",
+"img": "brands/ONTO.png"
+},
+{
+"_id": "b36e06fd-b030-11e8-8629-0050569459e9",
+"name": "BEAPHAR",
+"img": "brands/BEAPHAR.jpg"
+},
+{
+"_id": "88d44e81-0e82-11e5-9c79-005056bf2238",
+"name": "Triol",
+"img": "brands/triol.png"
+},
+{
+"_id": "b9056faf-2b6b-11e8-8c65-0050569459e9",
+"name": "GIMBORN",
+"img": "brands/GIMBORN.png"
+},
+{
+"_id": "79cff25d-311b-11e5-8f55-005056bf2238",
+"name": "Triol-Disney",
+"img": "brands/disney.png"
+},
+{
+"_id": "7e291c44-0e82-11e5-9c79-005056bf2238",
+"name": "Repti-Zoo",
+"img": "brands/Repti-Zoo.jpg"
+}
+]);
+
+// Run a find command to view items sold on April 4th, 2014.
+//db.sales.find({ date: { $gte: new Date('2014-04-04'), $lt: new Date('2014-04-05') } });
+
+// Build an aggregation to view total sales for each product in 2014.
+// const aggregation = [
+//   { $match: { date: { $gte: new Date('2014-01-01'), $lt: new Date('2015-01-01') } } },
+//   { $group: { id: '$item', totalSaleAmount: { $sum: { $multiply: [ '$price', '$quantity' ] } } } }
+// ];
+
+// Run the aggregation and open a cursor to the results.
+// Use toArray() to exhaust the cursor to return the whole result set.
+// You can use hasNext()/next() to iterate through the cursor page by page.
+// db.sales.aggregate(aggregation);

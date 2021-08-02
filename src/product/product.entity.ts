@@ -1,26 +1,32 @@
+import { FilterableRelation } from '@nestjs-query/query-graphql';
 import {
-    Table,
-    Column,
-    Model,
-    CreatedAt,
-    UpdatedAt,
-    PrimaryKey,
-    AutoIncrement,
-    ForeignKey,
-    BelongsTo,
-    BelongsToMany,
-  } from 'sequelize-typescript';
+  Table,
+  Column,
+  Model,
+  CreatedAt,
+  UpdatedAt,
+  PrimaryKey,
+  AutoIncrement,
+  ForeignKey,
+  BelongsTo,
+  BelongsToMany,
+  HasMany,
+} from 'sequelize-typescript';
+import { BrandEntity } from 'src/brand/brand.entity';
 import { CategoryEntity } from 'src/category/category.entity';
+import { PackageDTO } from 'src/productPackage/package.dto';
+import { PackageEntity } from 'src/productPackage/Package.entity';
 import { CategoryEntityProducts } from './category-products.entity';
-  
-  @Table
-  export class ProductEntity extends Model<ProductEntity, Partial<ProductEntity>> {
-    @PrimaryKey
-    @Column
-  id: number;
-  
+
+@Table
+@FilterableRelation('package', () => PackageDTO)
+export class ProductEntity extends Model<ProductEntity, Partial<ProductEntity>> {
+  @PrimaryKey
   @Column
-  name!: string;
+  id: string;
+
+  @Column
+  title!: string;
 
   @Column
   article!: string;
@@ -29,13 +35,10 @@ import { CategoryEntityProducts } from './category-products.entity';
   description: string;
 
   @Column
-  weight: number;
-
-  @Column
   count: number;
 
   @Column
-  priceForOne: number;
+  price: number;
 
   @Column
   new_product: boolean;
@@ -44,13 +47,11 @@ import { CategoryEntityProducts } from './category-products.entity';
   sale: boolean;
 
   @Column
-  composition: string;
+  @ForeignKey(() => BrandEntity)
+  brandId!: string;
 
-  @Column
-  code: string;
-
-  @Column
-  brand: string;
+  @BelongsTo(() => BrandEntity)
+  brand!: CategoryEntity;
 
   @Column
   country: string;
@@ -58,22 +59,22 @@ import { CategoryEntityProducts } from './category-products.entity';
   @Column
   size: string;
 
-  @Column
-  countInPackage: string;
-
-//   @Column
-//   images: string[];
+  //   @Column
+  //   images: string[];
 
   @BelongsToMany(() => CategoryEntity, () => CategoryEntityProducts)
   categories: CategoryEntity[];
-  
-//   @Prop()
-//   packages: {
-//     barcode: { type: String},
-//     package_id: { type: String},
-//     package_name: { type: String},
-//     price: { type: Number},
-//   }[]
-  
+
+  @HasMany(() => PackageEntity)
+  packages: PackageEntity[];
+
+  //   @Prop()
+  //   packages: {
+  //     barcode: { type: String},
+  //     package_id: { type: String},
+  //     package_name: { type: String},
+  //     price: { type: Number},
+  //   }[]
+
 }
 

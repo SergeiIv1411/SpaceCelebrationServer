@@ -6,7 +6,7 @@ import { ProductEntity } from './product.entity';
 export class CategoryEntityProducts extends Model<CategoryEntityProducts> {
   @ForeignKey(() => CategoryEntity)
   @Column
-  categoryId!: number;
+  categoryId!: string;
 
   @ForeignKey(() => ProductEntity)
   @Column

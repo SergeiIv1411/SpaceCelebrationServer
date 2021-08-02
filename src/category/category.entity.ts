@@ -1,29 +1,34 @@
 import {
-    Table,
-    Column,
-    Model,
-    CreatedAt,
-    UpdatedAt,
-    PrimaryKey,
-    AutoIncrement,
-    ForeignKey,
-    BelongsTo,
-  } from 'sequelize-typescript';
-  
-  @Table
-  export class CategoryEntity extends Model<CategoryEntity, Partial<CategoryEntity>> {
-    @PrimaryKey
-    @Column
-    id!: number;
-  
-    @Column
-    name!: string;
-  
-    @Column
-    @ForeignKey(() => CategoryEntity)
-    parentId!: number;
+  Table,
+  Column,
+  Model,
+  CreatedAt,
+  UpdatedAt,
+  PrimaryKey,
+  AutoIncrement,
+  ForeignKey,
+  BelongsTo,
+  BelongsToMany,
+} from 'sequelize-typescript';
+import { CategoryEntityProducts } from 'src/product/category-products.entity';
+import { ProductEntity } from 'src/product/product.entity';
 
-    @BelongsTo(() => CategoryEntity)
-    parent!: CategoryEntity;
-  }
-  
+@Table
+export class CategoryEntity extends Model<CategoryEntity, Partial<CategoryEntity>> {
+  @PrimaryKey
+  @Column
+  id!: string;
+
+  @Column
+  name!: string;
+
+  @Column
+  @ForeignKey(() => CategoryEntity)
+  parentId!: string;
+
+  @BelongsTo(() => CategoryEntity)
+  parent!: CategoryEntity;
+
+  @BelongsToMany(() => ProductEntity, () => CategoryEntityProducts)
+  products: ProductEntity[];
+}

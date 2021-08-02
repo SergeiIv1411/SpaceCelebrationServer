@@ -1,18 +1,18 @@
-import { FilterableCursorConnection, FilterableField, KeySet, PagingStrategies, QueryOptions } from '@nestjs-query/query-graphql';
+import { FilterableCursorConnection, FilterableField, FilterableOffsetConnection, KeySet, PagingStrategies, QueryOptions } from '@nestjs-query/query-graphql';
 import { ObjectType, ID, GraphQLISODateTime } from '@nestjs/graphql';
 import { CategoryDTO } from 'src/category/category.dto';
 
 @ObjectType('Product')
 @KeySet(['id'])
 @QueryOptions({ pagingStrategy: PagingStrategies.OFFSET, enableTotalCount: true })
-@FilterableCursorConnection('Category', () => CategoryDTO)
+@FilterableOffsetConnection('Category', () => CategoryDTO)
 export class ProductDTO {
 
     @FilterableField(() => ID)
     id!: number;
 
     @FilterableField()
-    name!: string;
+    title!: string;
 
     @FilterableField()
     article!: string;
@@ -21,13 +21,10 @@ export class ProductDTO {
     description: string;
 
     @FilterableField()
-    weight: number;
-
-    @FilterableField()
     count: number;
 
     @FilterableField()
-    priceForOne: number;
+    price: number;
 
     @FilterableField()
     new_product: boolean;
@@ -35,23 +32,14 @@ export class ProductDTO {
     @FilterableField()
     sale: boolean;
 
-    @FilterableField()
-    composition: string;
-
-    @FilterableField()
-    code: string;
-
-    @FilterableField()
-    brand: string;
+    @FilterableField(() => ID, { nullable: true })
+    brandId!: string;
 
     @FilterableField()
     country: string;
 
     @FilterableField()
     size: string;
-
-    @FilterableField()
-    countInPackage: string;
 
     // @FilterableField(() => [String])
     // images: [string];
